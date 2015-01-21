@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: qoverflow_development
+  pool: 5
+  username: eduardo
+  password: password1
+ 
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: qoverflow_test
+  pool: 5
+  username: eduardo
+  password: password1 
