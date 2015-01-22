@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
   root 'welcome#index'
-  get 'ui/new_question', to: 'ui#new_question' 
+  get 'ui(/:action)', controller: 'ui'
+  resources :questions, only: [:new, :index, :create]
 end

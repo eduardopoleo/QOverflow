@@ -14,6 +14,40 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/*styles for the sign in page*/
+.sign-up{
+  border-right: 1px solid #eaeaea;
+  padding-right: 10%;
+}
+
+#session{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  width: 50%;
+  height: 60%;
+  padding:0;
+}
+
+.footprint a:hover {
+  color: #222;
+}
+
+.footprint small {
+  float: left;
+}
+
+.footprint ul {
+  float: right;
+  list-style: none;
+  margin-right: 10%; 
+}
+
+.footprint ul li {
+  float: left;
+  margin-left: 15px; 
+}
+
 /* Nav bar styles*/
 
 .navbar-default {
@@ -21,7 +55,17 @@
     border-color: white;
 }
 
-/* New questions page styles*/
+/* Show question page styles*/
+.user-details{
+  width: 17%;
+  height: 5%;
+  float: right;
+  background-color: #A3E0FF;
+  margin-bottom: 3%;
+}
+
+/* Fotter styles*/
+
 footer {
   margin-top: 5%;
   padding-top: 5px;

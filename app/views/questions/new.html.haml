@@ -1,0 +1,14 @@
+.container
+  =render partial: "shared/navbar_ui"
+  .row
+    .col-md-12
+      %h1.text-center What's your question?
+
+  = bootstrap_form_for(@question, layout: :horizontal, label_col: "col-sm-2 col-sm-offset-1", control_col: "col-sm-6") do |f|
+    = f.text_field :title, placeholder: 'Enter question title'
+    = f.text_area :description, placeholder: 'Enter description', rows: '9'
+    = f.collection_select :category_id, Category.all, :id, :name,:include_blank => 'Select a Category'
+    .form-group
+      .col-sm-offset-3.col-sm-6
+        = f.submit 'Post Question!', :class => 'btn btn-info'
+  =render 'shared/footer'

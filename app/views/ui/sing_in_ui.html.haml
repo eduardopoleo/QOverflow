@@ -1,0 +1,51 @@
+#session
+  .row
+    .col-lg-2 
+      %h1 Logo
+    .col-lg-7 
+      %h2 Sign up to start reading
+      %lgall A world of questions... The source of knowledge
+  .row
+    .col-lg-6 
+      .sign-up
+        %h3 Sign Up 
+        %form.form-horizontal
+          .form-group
+            %label.col-lg-4.control-label{:for => "inputEmail3"} Email
+            .col-lg-8
+              %input#inputEmail3.form-control{:type => "email"}/
+          .form-group
+            %label.col-lg-4.control-label{:for => "password"} Full Name
+            .col-lg-8
+              %input#password.form-control{:type => "password"}/
+          .form-group
+            %label.col-lg-4.control-label{:for => "re_password"} Password
+            .col-lg-8
+              %input#re_password.form-control{:type => "password"}/
+          %p.help-block By clicking Sing Up your are entering in a weird world full of spiders and crazy ol ladies.
+          .form-group
+            .col-lg-offset-4.col-lg-8
+              %button.btn.btn-default.pull-right{:type => "submit"} Sign in   
+    .col-lg-5 
+      .login
+        %h3 Log In
+        %form
+          .form-group
+            %input#attribute.form-control{:placeholder => "Enter email", :type => "email"}/
+          .form-group
+            %input#password.form-control{:placeholder => "Enter Password", :type => "password"}/
+          %button.btn.btn-default.pull-right{:type => "submit"} Submit 
+  .footprint
+    %small
+      @2015
+      by
+      %a{:href => "http://eduardo-blog.herokuapp.com/"} Eduardo Poleo
+      for parody and training purposes
+    %nav
+      %ul
+        %li
+          %a{:href => "https://github.com/eduardopoleo"}
+            %i.fa.fa-github
+        %li
+          %a{:href => "http://ca.linkedin.com/pub/eduardo-poleo/56/364/a4"}
+            %i.fa.fa-linkedin-square
