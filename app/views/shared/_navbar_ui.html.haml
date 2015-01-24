@@ -16,11 +16,11 @@
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            Hanna Bates
+            = current_user.username 
             %span.caret
           %ul.dropdown-menu{:role => "menu"}
             %li
               %a{:href => "#"} Profile
             %li.divider
             %li
-              %a{:href => "#"} Sign out
+              = link_to 'Logout', logout_path 

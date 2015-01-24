@@ -1,0 +1,22 @@
+.container
+  = render partial: 'shared/navbar_ui'
+
+  %h2 Recent questions
+  - @questions.each do |question|
+    %hr
+    .row
+      .col-md-2 
+        .well.col-md-0.text-center
+          %i.fa.fa-arrow-up
+          %br
+          %span 4 votes
+          %br
+          %i.fa.fa-arrow-down
+      .col-md-10 
+        %h2 
+          = question.title
+        .user-details.text-center
+          %p
+            =question.created_at.strftime("%b %d, %Y")
+          %p by "#{question.user}" 
+  = render partial: 'shared/footer'
