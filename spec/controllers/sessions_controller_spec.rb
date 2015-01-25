@@ -11,6 +11,13 @@ describe SessionsController do
       get :signin
       expect(assigns(:user)).to be_new_record
     end
+
+    it 'redirects to the questions path if there is already a user id in the session' do
+      alice = Fabricate(:user)
+      session[:user_id] = alice.id
+      get :signin
+      expect(response).to redirect_to questions_path
+    end
   end   
 
   describe 'POST login' do

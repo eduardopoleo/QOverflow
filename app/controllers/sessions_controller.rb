@@ -1,7 +1,11 @@
 class SessionsController < ApplicationController
   def signin
-    @user = User.new
-    render :signin
+    if session[:user_id]
+      redirect_to questions_path
+    else
+      @user = User.new
+      render :signin
+    end
   end
 
   def login 

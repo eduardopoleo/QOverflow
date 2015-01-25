@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe QuestionsController do
-  describe 'GET new' do
-    let(:alice){Fabricate(:user)}
-    before{session[:user_id]= alice.id}
+  let(:alice){Fabricate(:user)}
+  before{session[:user_id]= alice.id}
 
+  describe 'GET new' do
     it 'renders the new template' do
       get :new
       expect(response).to render_template :new
@@ -16,16 +16,14 @@ describe QuestionsController do
       expect(assigns(:question)).to be_instance_of(Question)
     end
 
-    # it 'redirects to the signin_path if the user is not authenticated' do
-    #   session[:user_id] = nil
-    #   get :new
-    #   expect(response).to redirect_to signin_path
-    # end
+    it 'redirects to the signin_path if the user is not authenticated' do
+      session[:user_id] = nil
+      get :new
+      expect(response).to redirect_to signin_path
+    end
   end
   
   describe 'POST create' do
-    let(:alice){Fabricate(:user)}
-    before{session[:user_id]= alice.id}
     let(:drama){Fabricate(:category)}
 
     context 'with authenticated user' do
@@ -65,12 +63,13 @@ describe QuestionsController do
       end
     end
 
-    # it 'redirects to the sign in path if the user is not authenticated' do
-    #   session[:user_id] = nil
-    #   post :create, question: {  title: 'Some random title?', description:'Random fasfsfskljj sfsfsaf fasf fsaf', category_id: drama.id } 
-    #   expect(response).to redirect_to signin_path
-    # end
+    it 'redirects to the sign in path if the user is not authenticated' do
+      session[:user_id] = nil
+      post :create, question: {  title: 'Some random title?', description:'Random fasfsfskljj sfsfsaf fasf fsaf', category_id: drama.id } 
+      expect(response).to redirect_to signin_path
+    end
   end
+
   describe 'GET index' do
     it 'renders the index template' do
       get :index
@@ -83,6 +82,33 @@ describe QuestionsController do
       get :index
       expect(assigns(:questions)).to match_array([question2, question1])
     end
-    # it 'redirects to the the signin page if user is not authenticated' 
+
+    it 'redirects to the the signin page if user is not authenticated' do
+      session[:user_id] = nil
+      get :index
+      expect(response).to redirect_to signin_path
+    end
+  end
+
+  describe 'GET show' do
+    context 'Authenticated users' do
+      let(:question) {Fabricate(:question)}
+      before{get :show, id: question.id}
+
+      it 'renders the show question template' do
+        expect(response).to render_template :show
+      end
+
+      it 'sets the @question variable' do
+        expect(assigns(:question)).to eq(question)
+      end
+    end
+
+    it 'redirects to the sign in path if the user is not authenticated' do
+      session[:user_id] = nil
+      question = Fabricate(:question)
+      get :show, id: question.id
+      expect(response).to redirect_to signin_path
+    end
   end
 end
