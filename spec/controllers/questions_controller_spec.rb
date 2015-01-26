@@ -111,4 +111,46 @@ describe QuestionsController do
       expect(response).to redirect_to signin_path
     end
   end
+
+  describe 'POST vote' do
+    it 'redirects back to the response to where it came' do
+      # the url questions/:id/vote
+      question = Fabricate(:question)
+      post :vote, vote: true, id: question.id 
+      # There is no way to test redirect back to the controller 
+      expect(response).to redirect_to questions_path
+    end
+
+    it 'creates a vote' do
+      question = Fabricate(:question)
+      post :vote, vote: true, id: question.id 
+      expect(question.votes.count).to eq(1)
+    end
+
+    it 'creates a vote associated with the user' do
+      question = Fabricate(:question)
+      post :vote, vote: true, id: question.id 
+      expect(Vote.first.user).to eq(alice)
+    end
+
+    it 'creates a vote associated with a specific question' do
+      question = Fabricate(:question)
+      post :vote, vote: true, id: question.id 
+      expect(Vote.first.voteable).to eq(question)
+    end
+
+    it 'redirects back to the signin page if the user is not authenticated' do
+      session[:user_id] = nil
+      question = Fabricate(:question)
+      post :vote, vote: true, id: question.id 
+      expect(response).to redirect_to signin_path
+    end
+
+    it 'ensures uniquesness of vote per user per question (a user can not vote twice on an item)' do
+      question = Fabricate(:question)
+      vote = Fabricate(:vote, voteable: question, user: alice)
+      post :vote, vote: true, id: question.id 
+      expect(alice.votes.count).to eq(1)
+    end
+  end
 end

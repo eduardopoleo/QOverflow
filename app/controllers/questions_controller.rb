@@ -10,7 +10,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
+    @question = set_question
   end
   
   def create
@@ -27,7 +27,18 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def vote
+    @question = set_question
+    @vote = Vote.create(user:current_user, voteable: @question, vote: params[:vote])
+    redirect_to questions_path
+  end
+
   private
+
+  def set_question
+    @question = Question.find(params[:id])
+  end
+
   def question_params
     params.require(:question).permit(:title, :description)
   end

@@ -56,13 +56,23 @@
 }
 
 /* Show question page styles*/
-.glyphicon{
-  font-size: 2em;
-  color: blue;
+$upvote-color: blue;
+
+.upvote{
+  font-size: 8px;
+  font-weight: bold; 
+  border-color: $upvote-color; 
 }
 
-.vote{
-  font-size: 35px;
+.contributor-name{
+  font-weight: bold; 
+}
+.question-separation{
+  border-top: 2px solid #eeeeee;
+}
+
+.downvote{
+  margin-left: 10px;
 }
 
 /* Fotter styles*/

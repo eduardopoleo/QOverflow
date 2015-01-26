@@ -1,0 +1,39 @@
+.container
+  =render 'shared/navbar_ui'
+  .row
+    .col-xs-7.col-xs-offset-2 
+      %h3
+        = @question.title
+      %p
+        = @question.description
+      = link_to signin_path do
+        %button.btn.btn-default.upvote 
+          Upvote | 21
+      %small.downvote Downvote
+      %small.pull-right
+        =@question.created_at.strftime("%b %d, %Y")
+      %hr.question-separation
+      %p 
+        = @question.answers.size
+        answers
+      %hr
+      .well
+        %p.contributor-name 
+          = current_user.username
+        = form_for([@question, @question.answers.build]) do |f|  
+          .form-group
+            = f.text_area :description, class: 'form-control', placeholder: 'Write your answer', rows: '3' 
+            %p.help-block Be constructive and do not insult other people :)
+          = f.submit 'Write answer', class: 'btn btn-default upvote' 
+
+      - @question.answers.reload.each do |answer|
+        %hr
+        %p.contributor-name
+          =answer.user.username
+        %p
+          =answer.description
+        %button.btn.btn-default.upvote 
+          Upvote | 21
+        %small.downvote Downvote
+        %small.pull-right 15 Feb, 2016
+  = render partial: 'shared/footer'

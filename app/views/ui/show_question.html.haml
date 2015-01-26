@@ -1,75 +1,31 @@
 .container
   =render 'shared/navbar_ui'
   .row
-    .col-xs-10.col-xs-offset-1
-      .row
-        .col-xs-12 
-          %h3 Why zombie-like ants sometimes wonder in the woods and kill themselves?
-      .row
-        .col-xs-10 
-          %p
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-            vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-            no sea takimata sanctus est Lorem ipsum dolor sit amet.
-          %p
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-            vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-            no sea takimata sanctus est Lorem ipsum dolor sit amet.
-          %p
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-            vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-            no sea takimata sanctus est Lorem ipsum dolor sit amet.
-          .text-center.pull-left
-            %p By Hanna Bates at 11 Feb, 2014 glyphicon glyphicon-triangle-top
-        .col-xs-1.parent.well.text-center
-          <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
-          %br
-          %span.vote  4 
-          %br
-          <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>    
-      .row
-        .col-md-11 
-          %h3.text-right
-            2 Answers
-          %hr
-      .row.answer
-        .col-xs-1.parent.well.text-center
-          <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
-          %br
-          %span.vote  4 
-          %br
-          <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
-        .col-xs-10 
-          %p.text-right
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-            vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-            no sea takimata sanctus est Lorem ipsum dolor sit amet.
-          %p.text-right
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-            vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-            no sea takimata sanctus est Lorem ipsum dolor sit amet.
-          %p.text-right
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-            vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-            no sea takimata sanctus est Lorem ipsum dolor sit amet.
-          %p.text-right by Hanna dsfasdf
-      
+    .col-xs-7.col-xs-offset-2 
+      %h3 I could not solve an easy problem. Should I quit programming?
+      %p I was trying to solve this: Find a substring within a string. If found, display its starting position.  I started learning C++ (first language) 6 months back and I have just completed functions, arrays and strings. This is probably the 10th problem that I am solving in strings and I could not do it although I am usually counted amongst the good students in my class at school. I made a program, it worked for some cases, then I discovered the newer cases and modified the existing program. This continued for around half an hour when I got frustrated and looked up the solution on the internet. After looking at the solution, I felt very stupid as it seemed to be so easy. I'm 17 and have had great interest in computers and gadgets and how they function; for a long time, so I want to work in good places and make something big. Will I ever be able to achieve that? I don't think this incident has anything to do with computers or programming. Is  it that my intelligence and thinking level are not good enough for  programming and coding? Should I quit and find something else?
+      %button.btn.btn-default.upvote 
+        Upvote | 21
 
-
-      .col-xs-6  
+      %small.downvote Downvote
+      %small.pull-right 15 Feb, 2010
+      %hr.question-separation
+      %p 5 Anwsers
+      %hr
+      .well
+        %p.contributor-name Jose de la vava
         %form
           .form-group
-            %label{:for => "attribute"} Title
-            %input#attribute.form-control{:placeholder => "Enter email", :type => "email"}/
-          .form-group
-            %label{:for => "attribute"} Description 
-            %textarea#comment.form-control{:placeholder => "Enter content",:rows => "5"}
-          %button.btn.btn-default{:type => "submit"} Submi
-  =render 'shared/footer'
+            %textarea#comment.form-control{:placeholder => "Write your anwser",:rows => "3"}
+            %p.help-block Be constructive and do not insult other people :)
+          %button.btn.btn-default.upvote{:type => "submit"} Write anwser 
+      %hr
+      %p.contributor-name Eduardo Poleo
+      %p You are 17 and you are already learning arguably the hardest language to learn?! When I was 17 I was busy playing games with my friends and chasing girls ;)
+      %p Don't whrry too much! My guess is that your failure was not exactly because you are not clever, but just because of lack of experience. Just keep practising and learn from your mistakes. Unless you want to work at NASA, most of 'real-life' programming problems are all the same as the old ones. Once you know one, you will remember the next time you encounter it.  Remember 'Practice makes Perfect'
+      %button.btn.btn-default.upvote 
+        Upvote | 21
 
+      %small.downvote Downvote
+      %small.pull-right 15 Feb, 2016
+  = render partial: 'shared/footer'
