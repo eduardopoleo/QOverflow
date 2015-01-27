@@ -11,7 +11,7 @@ class Question < ActiveRecord::Base
     most_relevant = nil
 
     answers.each do |answer|
-      if answer.total_votes >= max_score
+      if answer.total_votes > max_score
         most_relevant = answer
       end
     end

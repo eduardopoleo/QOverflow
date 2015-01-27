@@ -11,10 +11,39 @@
  * file per style scope.
  *
  */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* General style*/
+
+.title{
+  font-weight: bold;  
+}
+
+.upvote{
+  font-size: 8px;
+  font-weight: bold; 
+  background-color: #85ADFF;
+  border: 1px #707070 solid;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+.downvote{
+  color:#999; 
+  margin-left: 10px;
+}
+
 /*styles for the sign in page*/
+ 
+body{
+  font-family: Helvetica; 
+  color: black; 
+}
+
 .sign-up{
   border-right: 1px solid #eaeaea;
   padding-right: 10%;
@@ -55,14 +84,35 @@
     border-color: white;
 }
 
+#q{
+  font-size: 2em;
+  color: #a20;
+  font-weight: bold;
+  font-family: Helvetica Neue;
+}
+
+#o{
+  font-size: 1.5em;
+  color: black;
+  font-weight: bold;
+  font-family: Helvetica;
+}
+
+#username-navbar{
+   font-size: 1.2em;  
+   font-weight: bold;
+   color: black;
+}
+
+.navbar-btn{
+  border-radius: 3px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+}
+
 /* Show question page styles*/
 $upvote-color: blue;
 
-.upvote{
-  font-size: 8px;
-  font-weight: bold; 
-  border-color: $upvote-color; 
-}
+
 
 .contributor-name{
   font-weight: bold; 
@@ -71,9 +121,7 @@ $upvote-color: blue;
   border-top: 2px solid #eeeeee;
 }
 
-.downvote{
-  margin-left: 10px;
-}
+
 
 /* Fotter styles*/
 

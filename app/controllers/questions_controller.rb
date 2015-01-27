@@ -30,7 +30,7 @@ class QuestionsController < ApplicationController
   def vote
     @question = set_question
     @vote = Vote.create(user:current_user, voteable: @question, vote: params[:vote])
-    redirect_to questions_path
+    redirect_to :back
   end
 
   private

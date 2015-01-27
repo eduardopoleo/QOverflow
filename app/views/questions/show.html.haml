@@ -2,14 +2,15 @@
   =render 'shared/navbar_ui'
   .row
     .col-xs-7.col-xs-offset-2 
-      %h3
+      %h3.title
         = @question.title
       %p
         = @question.description
-      = link_to signin_path do
+      = link_to vote_question_path(@question, vote: true), method: 'post' do
         %button.btn.btn-default.upvote 
-          Upvote | 21
-      %small.downvote Downvote
+          Upvote | #{@question.total_votes} 
+      = link_to vote_question_path(@question, vote: false), method: 'post' do    
+        %small.downvote Downvote
       %small.pull-right
         =@question.created_at.strftime("%b %d, %Y")
       %hr.question-separation
@@ -32,8 +33,10 @@
           =answer.user.username
         %p
           =answer.description
-        %button.btn.btn-default.upvote 
-          Upvote | 21
-        %small.downvote Downvote
+        = link_to vote_question_answer_path(answer, question_id: @question.id, vote: true), method: 'post' do
+          %button.btn.btn-default.upvote 
+            Upvote | #{answer.total_votes}
+        = link_to vote_question_answer_path(answer, question_id: @question.id, vote: false), method: 'post' do    
+          %small.downvote Downvote
         %small.pull-right 15 Feb, 2016
   = render partial: 'shared/footer'

@@ -1,27 +1,30 @@
-%nav.navbar.navbar-default
-  .container-fluid
-    / Brand and toggle get grouped for better mobile display
-    .navbar-header
-      %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      %a.navbar-brand{:href => "#"} 
-        %span#q> Q
-        %span#o> Overflow
-    / Collect the nav links, forms, and other content for toggling
-    #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      = link_to new_question_path, class: 'navbar-right' do
-        %button.btn.btn-danger.navbar-btn{:type => "button"} Add a question
-      %ul.nav.navbar-nav.navbar-right
-        %li.dropdown
-          %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            = current_user.username 
-            %span.caret
-          %ul.dropdown-menu{:role => "menu"}
-            %li
-              %a{:href => "#"} Profile
-            %li.divider
-            %li
-              = link_to 'Logout', logout_path 
+.col-xs-10.col-xs-offset-1
+  %nav.navbar.navbar-default
+    .container-fluid
+      / Brand and toggle get grouped for better mobile display
+      .navbar-header
+        %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand{:href => "#"} 
+          %span#q> Q
+          %span#o> overflow
+      / Collect the nav links, forms, and other content for toggling
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        = link_to new_question_path, class: 'navbar-right' do
+          %button.btn.btn-danger.navbar-btn{:type => "button"} 
+            %i.fa.fa-pencil-square-o Add Question
+        %ul.nav.navbar-nav.navbar-right
+          %li.dropdown
+            %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              %span#username-navbar
+                = current_user.username 
+              %span.caret
+            %ul.dropdown-menu{:role => "menu"}
+              %li
+                %a{:href => "#"} Profile
+              %li.divider
+              %li
+                = link_to 'Logout', logout_path 

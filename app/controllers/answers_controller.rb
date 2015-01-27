@@ -18,7 +18,7 @@ class AnswersController < ApplicationController
   def vote
     @answer = Answer.find(params[:id])
     @vote = Vote.create(user: current_user, vote: params[:vote], voteable: @answer)
-    redirect_to question_path(@question)
+    redirect_to :back
   end
 
   private
