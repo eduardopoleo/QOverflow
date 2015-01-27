@@ -69,14 +69,14 @@ describe AnswersController do
   describe 'POST vote' do
     let(:question) {Fabricate(:question)}
     let(:answer) {Fabricate(:answer)}
+    # In order to test to redirect back
+    before{request.env["HTTP_REFERER"] = "http://fake.host"}
 
     context 'with valid credentials' do
       before {post :vote, vote: true, id: answer.id, question_id: question.id}
 
       it 'redirects back to the response to where it came' do
-        # the url questions/:question_id/answers/:answer_id/vote
-        # There is no way to test redirect back to the controller 
-        expect(response).to redirect_to question_path(question)
+        expect(response).to redirect_to "http://fake.host"
       end
 
       it 'creates a vote' do

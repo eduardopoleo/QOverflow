@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'sessions#signin'
 
   get 'ui(/:action)', controller: 'ui'
-  
+
   #session routes
   get '/signin', to: 'sessions#signin', as: :signin
   post '/login', to: 'sessions#login', as: :login
@@ -22,5 +22,4 @@ Rails.application.routes.draw do
   end
 
   post '/users', to: 'users#create', as: :create_user
-  resources :users, except: [:create]
 end

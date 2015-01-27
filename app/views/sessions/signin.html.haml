@@ -12,7 +12,7 @@
     .col-lg-6 
       .sign-up
         %h3 Sign Up
-        = bootstrap_form_for(@user, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8") do |f|
+        = bootstrap_form_for @user, url:{action: 'create', controller: 'users'}, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8" do |f|
           = f.email_field :email
           = f.text_field :username
           = f.password_field :password

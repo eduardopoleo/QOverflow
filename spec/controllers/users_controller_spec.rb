@@ -26,18 +26,4 @@ describe UsersController do
       expect(response).to render_template :signin
     end
   end
-
- describe 'GET show' do
-   it 'renders the show template' do
-     alice = Fabricate(:user)
-     get :show, id: alice.id
-     expect(response).to render_template :show
-   end
-
-   it 'sets the @user variable' do
-     alice = Fabricate(:user)
-     get :show, id: alice.id
-     expect(assigns(:user)).to eq(alice)
-   end
- end
 end
