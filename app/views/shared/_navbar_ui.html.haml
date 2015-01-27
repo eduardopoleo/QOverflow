@@ -15,16 +15,15 @@
       #bs-example-navbar-collapse-1.collapse.navbar-collapse
         = link_to new_question_path, class: 'navbar-right' do
           %button.btn.btn-danger.navbar-btn{:type => "button"} 
-            %i.fa.fa-pencil-square-o Add Question
+            %i.fa.fa-pencil-square-o
+            %span.add-question Add Question
         %ul.nav.navbar-nav.navbar-right
+          %li
+            = link_to 'All Questions', questions_path, id:'all-questions'
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-              %span#username-navbar
-                = current_user.username 
+              = current_user.username 
               %span.caret
             %ul.dropdown-menu{:role => "menu"}
-              %li
-                %a{:href => "#"} Profile
-              %li.divider
               %li
                 = link_to 'Logout', logout_path 

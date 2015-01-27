@@ -15,7 +15,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* General style*/
+/* General styles*/
 
 .title{
   font-weight: bold;  
@@ -39,6 +39,18 @@ a:hover{
 
 /*styles for the sign in page*/
  
+#small-intro{
+  font-family: blippo;
+}
+
+.btn-danger{
+  background-color: #a20;
+  border: none;
+}
+#logo{
+  font-size: 1.5em;
+}
+
 body{
   font-family: Helvetica; 
   color: black; 
@@ -52,7 +64,7 @@ body{
 #session{
   margin-left: auto;
   margin-right: auto;
-  margin-top: 10%;
+  margin-top: 5%;
   width: 50%;
   height: 60%;
   padding:0;
@@ -98,10 +110,18 @@ body{
   font-family: Helvetica;
 }
 
-#username-navbar{
+.add-question{
+   font-weight: bold;
+}
+
+.navbar-default .navbar-nav > li > a{
    font-size: 1.2em;  
    font-weight: bold;
    color: black;
+}
+
+.navbar-default .navbar-nav > li > a:hover{
+  color: #2A2A2A;
 }
 
 .navbar-btn{
@@ -112,8 +132,6 @@ body{
 /* Show question page styles*/
 $upvote-color: blue;
 
-
-
 .contributor-name{
   font-weight: bold; 
 }
@@ -121,7 +139,16 @@ $upvote-color: blue;
   border-top: 2px solid #eeeeee;
 }
 
+.write-answer{
+  @extend .upvote;
+  background-color: #a20; 
+  color: white;
+}
 
+.write-answer:hover{
+  @extend .write-answer;
+  background-color: #D63030; 
+}
 
 /* Fotter styles*/
 
@@ -157,5 +184,25 @@ footer ul li {
 /* New questions page styles*/
 .form-margin{
     margin-top: 5%;
+}
+
+/* Styles for index question page */
+
+.badge{
+  margin-top: 20px;
+}
+.question-title{
+  color: black;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+
+.question-title:hover{
+  color: #2A2A2A;
+}
+
+.most-relevant-answer{
+  margin-top: 2%;
 }
 

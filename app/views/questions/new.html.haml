@@ -10,5 +10,5 @@
     = f.collection_select :category_id, Category.all, :id, :name,:include_blank => 'Select a Category'
     .form-group
       .col-sm-offset-3.col-sm-6
-        = f.submit 'Post Question!', :class => 'btn btn-info'
+        = f.submit 'Post Question!', :class => 'btn btn-danger'
   =render 'shared/footer'

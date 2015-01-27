@@ -6,10 +6,10 @@
         .row
           .col-xs-12
             - if question.category.present?
-              = link_to category_path(question.category) do 
-                <span class="badge">@question.category</span>
+              %span.badge 
+                = question.category.name
             = link_to question_path(question) do
-              %h3
+              %h3.question-title
                 = question.title
             = link_to vote_question_path(question, vote: true), method: 'post' do
               %button.btn.btn-default.upvote 
@@ -17,7 +17,9 @@
             = link_to vote_question_path(question, vote: false), method: 'post' do
               %small.downvote Downvote
             %small.pull-right
-              February 15
-            %p
-              = question.most_relevant_answer.description if question.most_relevant_answer
+              by 
+              %strong #{question.user.username} 
+              at #{question.created_at.strftime("%b %d, %Y")}
+            %p.most-relevant-answer
+              = simple_format(question.most_relevant_answer.description.truncate(400)) if question.most_relevant_answer
   = render partial: 'shared/footer'

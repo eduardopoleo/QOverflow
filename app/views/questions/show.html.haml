@@ -14,9 +14,9 @@
       %small.pull-right
         =@question.created_at.strftime("%b %d, %Y")
       %hr.question-separation
-      %p 
+      %h4 
         = @question.answers.size
-        answers
+        Answers
       %hr
       .well
         %p.contributor-name 
@@ -25,18 +25,21 @@
           .form-group
             = f.text_area :description, class: 'form-control', placeholder: 'Write your answer', rows: '3' 
             %p.help-block Be constructive and do not insult other people :)
-          = f.submit 'Write answer', class: 'btn btn-default upvote' 
+          = f.submit 'Write Answer', class: 'btn btn-default write-answer ' 
 
       - @question.answers.reload.each do |answer|
         %hr
         %p.contributor-name
           =answer.user.username
         %p
-          =answer.description
+          = simple_format(answer.description)
         = link_to vote_question_answer_path(answer, question_id: @question.id, vote: true), method: 'post' do
           %button.btn.btn-default.upvote 
             Upvote | #{answer.total_votes}
         = link_to vote_question_answer_path(answer, question_id: @question.id, vote: false), method: 'post' do    
           %small.downvote Downvote
-        %small.pull-right 15 Feb, 2016
+        %small.pull-right 
+          by 
+          %strong #{answer.user.username} 
+          at #{answer.created_at.strftime("%b %d, %Y")}
   = render partial: 'shared/footer'
