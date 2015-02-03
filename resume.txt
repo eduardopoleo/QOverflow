@@ -1,0 +1,18 @@
+﻿html
+
+css
+Jquery
+  Ajax
+  Jquery UI
+Ruby 
+Ruby on rails
+TDD
+  Rspec 
+  Unit Testing
+Agile Development 
+  Scrum 
+Reference manual
+
+Preferred Development enviroment:
+Vim + Tmux
+  Link to development enviroment

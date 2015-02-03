@@ -13,7 +13,7 @@
           %span#o> overflow
       / Collect the nav links, forms, and other content for toggling
       #bs-example-navbar-collapse-1.collapse.navbar-collapse
-        = link_to new_question_path, class: 'navbar-right' do
+        = link_to new_question_path, class: 'navbar-right', id: 'add-question' do
           %button.btn.btn-danger.navbar-btn{:type => "button"} 
             %i.fa.fa-pencil-square-o
             %span.add-question Add Question
